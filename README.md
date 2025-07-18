@@ -1,22 +1,16 @@
-# Generative AI-Powered Job Recommender System (MCP)
+# Job Recommendation Service (MCP)
+# Generative AI-Based
 
-This project is a Generative AI-powered Job Recommendation Server built with Python. It leverages the Model Context Protocol (MCP), Gemini AI, and job APIs to provide personalized job recommendations based on user input, including PDF resume parsing.
+This project is a Generative AI-powered Job Recommendation Server built with Python; leverages the MCP, Gemini, and job APIs to provide personalized job recommendations based on user input, including CV,PDF resume parsing.
 
-## Features
-- **Resume Parsing:** Extracts text from uploaded PDF resumes using PyMuPDF.
-- **AI-Powered Recommendations:** Uses Gemini AI to analyze user input and generate job recommendations.
-- **Job Aggregation:** Fetches job listings from LinkedIn and Naukri using the Apify API.
-- **Environment Variables:** Securely manages API keys and tokens using a `.env` file.
 
 ## Tech Stack
 - Python 3.8+
-- Streamlit (for UI, if used)
+- Streamlit 
 - PyMuPDF (fitz)
 - Gemini AI (Google)
 - Apify Client
-- python-dotenv
 
-## Getting Started
 
 ### 1. Clone the Repository
 ```bash
