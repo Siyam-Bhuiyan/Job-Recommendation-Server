@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ### 3. Set Up Environment Variables
 Create a `.env` file in the project root with the following content:
 ```env
-OPENAI_API_KEY=your_openai_api_key
+OPENAI_API_KEY=your_openai_api_key or
 GEMINI_API_KEY=your_gemini_api_key
 PYMUPDF_API_KEY=your_pymupdf_api_key
 APIFY_API_TOKEN=your_apify_api_token
