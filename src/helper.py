@@ -9,9 +9,8 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
 
-client= GeminiClient(api_key=GEMINI_API_KEY)
-
 apify_client = ApifyClient(os.getenv("APIFY_API_TOKEN"))
+
 
 
 def extract_text_from_pdf(uploaded_file):
@@ -70,17 +69,15 @@ def fetch_linkedin_jobs(search_query, location="Bangladesh", rows=50):
     return jobs
 
 
-def fetch_naukri_jobs(search_query, location="Bangladesh", rows=50):
-    """
-    Fetch job listings from Naukri based on a query and location.
-    
-    Args:
-        query (str): The job title or keywords to search for.
-        location (str): The location to search in.
-        
-    Returns:
-        list: A list of job listings.
-    """
-    # Placeholder for Naukri job fetching logic
-    # This function should interact with the Naukri API or web scraping logic
-    return [{"title": "Data Scientist", "company": "Data Solutions", "location": "Dhaka"}]
+# Fetch Naukri jobs based on search query and location
+def fetch_naukri_jobs(search_query, location = "india", rows=60):
+    run_input = {
+        "keyword": search_query,
+        "maxJobs": 60,
+        "freshness": "all",
+        "sortBy": "relevance",
+        "experience": "all",
+    }
+    run = apify_client.actor("alpcnRV9YI9lYVPWk").call(run_input=run_input)
+    jobs = list(apify_client.dataset(run["defaultDatasetId"]).iterate_items())
+    return jobs
